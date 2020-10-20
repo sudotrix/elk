@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kibana-certificate              #name of certificate
+  namespace: kibana
+spec:
+  secretName: kibana-secret        #name of tls secret
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: "kibana.splashdevelop.eu"
+  dnsNames:
+  - "kibana.splashdevelop.eu"
